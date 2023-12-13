@@ -1,30 +1,27 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import Logo from "@/components/Logo.vue";
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div class="w-full h-full">
+    <nav class="w-full h-20 px-5 py-5 flex justify-between items-center box-border">
+      <div class="flex-1 h-full flex justify-start"><Logo class="h-full"/></div>
+      <div class="title-main text-center flex-1">I love three things in the world</div>
+      <ul class="nav flex justify-end flex-1">
+        <li>博客</li>
+        <li>项目</li>
+        <li>摄影</li>
+        <li>音乐</li>
+      </ul>
+    </nav>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.nav{
+
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+li{
+  padding: 0 1rem;
 }
 </style>
