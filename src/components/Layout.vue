@@ -3,13 +3,15 @@ import NavList from "./NavList.vue";
 </script>
 
 <template>
-  <header>
-    <NavList />
-  </header>
-  <main>
-    <RouterView />
-  </main>
-  <footer></footer>
+  <div class="h-full flex flex-col">
+    <header>
+      <NavList />
+    </header>
+    <main class="flex-1">
+      <RouterView />
+    </main>
+    <footer></footer>
+  </div>
 </template>
 
 <style scoped></style>

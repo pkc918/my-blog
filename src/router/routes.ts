@@ -1,5 +1,6 @@
 import { RouteRecordRaw } from "vue-router";
 const Layout = () => import("@/components/Layout.vue");
+const Intro = () => import("@/views/Intro.vue");
 
 const routes: RouteRecordRaw[] = [
   {
@@ -16,7 +17,7 @@ const routes: RouteRecordRaw[] = [
       {
         path: "/intro",
         name: "intro",
-        component: Layout,
+        component: Intro,
       },
       {
         path: "/blog",

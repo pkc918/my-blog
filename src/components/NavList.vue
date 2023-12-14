@@ -13,8 +13,10 @@ import OutLine from "@/components/OutLine.vue";
       </RouterLink>
     </div>
     <div class="title-main text-center flex-1 text-truncate">
-      I love three things in the world, the sun the moon and you, the sun for
-      the day, the moon for the night and you forever.
+      <span
+        >I love three things in the world, the sun the moon and you, the sun for
+        the day, the moon for the night and you forever.</span
+      >
     </div>
     <ul class="navlist-btn flex justify-end flex-1">
       <li>
@@ -46,8 +48,6 @@ import OutLine from "@/components/OutLine.vue";
 </template>
 
 <style scoped>
-.nav {
-}
 li {
   padding: 0 1rem;
 
