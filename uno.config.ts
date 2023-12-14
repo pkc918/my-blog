@@ -1,10 +1,12 @@
 // uno.config.ts
-import { defineConfig } from 'unocss'
+import { defineConfig } from "unocss";
 
 export default defineConfig({
-    // ...UnoCSS options
-    shortcuts: {
-        "bg-main": "bg-[rgba(207,240,218,0.1)]",
-        "title-main": "text-[#3ac569]"
-    }
-})
+  // ...UnoCSS options
+  shortcuts: {
+    "bg-main": "bg-[rgba(207,240,218,0.1)]",
+    "title-main": "text-[#3ac569]",
+    /* NavList */
+    "navlist-btn": "[&>li]:(px-2)",
+  },
+});

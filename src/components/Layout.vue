@@ -1,18 +1,15 @@
 <script setup lang="ts">
-
 import NavList from "./NavList.vue";
 </script>
 
 <template>
   <header>
-    <NavList/>
+    <NavList />
   </header>
   <main>
-<!--    <router-view></router-view>-->
+    <RouterView />
   </main>
   <footer></footer>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
