@@ -14,6 +14,7 @@ import OutLine from "@/components/OutLine.vue";
     </div>
     <div class="title-main text-center flex-1 text-truncate">
       <span
+          title="I love three things in the world, the sun the moon and you, the sun for the day, the moon for the night and you forever."
         >I love three things in the world, the sun the moon and you, the sun for
         the day, the moon for the night and you forever.</span
       >
