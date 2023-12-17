@@ -2,7 +2,8 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import router from "@/router/router.ts";
 
-import "./style.css";
+import "@/styles/style.css";
+import "@/styles/transition.css";
 import "virtual:uno.css";
 
 createApp(App).use(router).mount("#app");

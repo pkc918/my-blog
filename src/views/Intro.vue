@@ -23,7 +23,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="w-full h-full flex-col fcc caret-transparent relative">
+  <div class="w-full h-full flex-col fcc caret-transparent relative" slide-enter>
     <img
       class="w-70 h-70 rd-full"
       src="https://avatars.githubusercontent.com/u/58922004?v=4"

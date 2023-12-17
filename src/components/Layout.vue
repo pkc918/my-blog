@@ -1,17 +1,19 @@
 <script setup lang="ts">
-import NavList from "./NavList.vue";
+import NavList from "@/components/NavList.vue";
 </script>
 
 <template>
-  <div class="h-full flex flex-col bg-[rgba(207,240,218,0.3)]">
-    <header>
+  <div class="h-full min-h-full flex flex-col">
+    <header class="w-full fixed top-0 bg-[rgba(255,255,255,1)] z-1">
       <NavList />
     </header>
-    <main class="flex-1 flex justify-center">
+    <main class="flex-1 flex justify-center mt-30">
       <RouterView />
     </main>
     <footer></footer>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+
+</style>
