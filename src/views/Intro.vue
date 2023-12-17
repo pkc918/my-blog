@@ -32,7 +32,7 @@ onUnmounted(() => {
     <div class="h-50 mt-5">
       <span ref="excerpt"></span>
     </div>
-    <FoundMe class="absolute right-10 top-50% translate-y--100%" />
+    <FoundMe class="absolute right-10 top-50% translate-y--90%" />
   </div>
 </template>
 

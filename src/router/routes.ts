@@ -2,6 +2,7 @@ import { RouteRecordRaw } from "vue-router";
 const Layout = () => import("@/components/Layout.vue");
 const Intro = () => import("@/views/Intro.vue");
 const Blogs = () => import("@/views/Blogs.vue");
+const Projects = () => import("@/views/Projects.vue");
 
 const routes: RouteRecordRaw[] = [
   {
@@ -28,7 +29,7 @@ const routes: RouteRecordRaw[] = [
       {
         path: "/projects",
         name: "projects",
-        component: Layout,
+        component: Projects,
       },
       {
         path: "/photo",
