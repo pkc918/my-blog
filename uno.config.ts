@@ -11,5 +11,6 @@ export default defineConfig({
     "navlist-btn": "[&>li]:(px-2 text-4)",
     /* FoundMe */
     "found-me-btn": "[&>li]:(text-6 fcc p-1 rd-full w-8 h-8 my-2) [&>li>a]:(fcc w-full h-full inline-block)"
+    /*Blogs*/
   },
 });
