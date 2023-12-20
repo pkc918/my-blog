@@ -1,263 +1,176 @@
 <script setup lang="ts">
 
-import Markdown from "@/components/Markdown.vue";
-const text = `
----
-__Advertisement :)__
-
-- __[pica](https://nodeca.github.io/pica/demo/)__ - high quality and fast image
-  resize in browser.
-- __[babelfish](https://github.com/nodeca/babelfish/)__ - developer friendly
-  i18n with plurals support and easy syntax.
-
-You will like those projects!
-
----
-
-# h1 Heading 8-)
-## h2 Heading
-### h3 Heading
-#### h4 Heading
-##### h5 Heading
-###### h6 Heading
-
-
-## Horizontal Rules
-
-___
-
----
-
-***
-
-
-## Typographic replacements
-
-Enable typographer option to see result.
-
-(c) (C) (r) (R) (tm) (TM) (p) (P) +-
-
-test.. test... test..... test?..... test!....
-
-!!!!!! ???? ,,  -- ---
-
-"Smartypants, double quotes" and 'single quotes'
-
-
-## Emphasis
-
-**This is bold text**
-
-__This is bold text__
-
-*This is italic text*
-
-_This is italic text_
-
-~~Strikethrough~~
-
-
-## Blockquotes
-
-
-> Blockquotes can also be nested...
->> ...by using additional greater-than signs right next to each other...
-> > > ...or with spaces between arrows.
-
-
-## Lists
-
-Unordered
-
-+ Create a list by starting a line with \`+\`, \`-\`, or \`*\`
-+ Sub-lists are made by indenting 2 spaces:
-  - Marker character change forces new list start:
-    * Ac tristique libero volutpat at
-    + Facilisis in pretium nisl aliquet
-    - Nulla volutpat aliquam velit
-+ Very easy!
-
-Ordered
-
-1. Lorem ipsum dolor sit amet
-2. Consectetur adipiscing elit
-3. Integer molestie lorem at massa
-
-
-1. You can use sequential numbers...
-1. ...or keep all the numbers as \`1.\`
-
-Start numbering with offset:
-
-57. foo
-1. bar
-
-
-## Code
-
-Inline \`code\`
-
-Indented code
-
-    // Some comments
-    line 1 of code
-    line 2 of code
-    line 3 of code
-
-
-Block code "fences"
-
-\`\`\`
-Sample text here...
-\`\`\`
-
-Syntax highlighting
-
-\`\`\` go
-var foo = 123;
-\`\`\`
-
-\`\`\` js
-var foo = function (bar) {
-  return bar++;
-};
-
-console.log(foo(5));
-\`\`\`
-
-## Tables
-
-| Option | Description |
-| ------ | ----------- |
-| data   | path to data files to supply the data that will be passed into templates. |
-| engine | engine to be used for processing templates. Handlebars is the default. |
-| ext    | extension to be used for dest files. |
-
-Right aligned columns
-
-| Option | Description |
-| ------:| -----------:|
-| data   | path to data files to supply the data that will be passed into templates. |
-| engine | engine to be used for processing templates. Handlebars is the default. |
-| ext    | extension to be used for dest files. |
-
-
-## Links
-
-[link text](http://dev.nodeca.com)
-
-[link with title](http://nodeca.github.io/pica/demo/ "title text!")
-
-Autoconverted link https://github.com/nodeca/pica (enable linkify to see)
-
-
-## Images
-
-![Minion](https://octodex.github.com/images/minion.png)
-![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
-
-Like links, Images also have a footnote style syntax
-
-![Alt text][id]
-
-With a reference later in the document defining the URL location:
-
-[id]: https://octodex.github.com/images/dojocat.jpg  "The Dojocat"
-
-
-## Plugins
-
-The killer feature of \`markdown-it\` is very effective support of
-[syntax plugins](https://www.npmjs.org/browse/keyword/markdown-it-plugin).
-
-
-### [Emojies](https://github.com/markdown-it/markdown-it-emoji)
-
-> Classic markup: :wink: :cry: :laughing: :yum:
->
-> Shortcuts (emoticons): :-) :-( 8-) ;)
-
-see [how to change output](https://github.com/markdown-it/markdown-it-emoji#change-output) with twemoji.
-
-
-### [Subscript](https://github.com/markdown-it/markdown-it-sub) / [Superscript](https://github.com/markdown-it/markdown-it-sup)
-
-- 19^th^
-- H~2~O
-
-
-### [\\<ins>](https://github.com/markdown-it/markdown-it-ins)
-
-++Inserted text++
-
-
-### [\\<mark>](https://github.com/markdown-it/markdown-it-mark)
-
-==Marked text==
-
-
-### [Footnotes](https://github.com/markdown-it/markdown-it-footnote)
-
-Footnote 1 link[^first].
-
-Footnote 2 link[^second].
-
-Inline footnote^[Text of inline footnote] definition.
-
-Duplicated footnote reference[^second].
-
-[^first]: Footnote **can have markup**
-
-    and multiple paragraphs.
-
-[^second]: Footnote text.
-
-
-### [Definition lists](https://github.com/markdown-it/markdown-it-deflist)
-
-Term 1
-
-:   Definition 1
-with lazy continuation.
-
-Term 2 with *inline markup*
-
-:   Definition 2
-
-        { some code, part of Definition 2 }
-
-    Third paragraph of definition 2.
-
-_Compact style:_
-
-Term 1
-  ~ Definition 1
-
-Term 2
-  ~ Definition 2a
-  ~ Definition 2b
-
-
-### [Abbreviations](https://github.com/markdown-it/markdown-it-abbr)
-
-This is HTML abbreviation example.
-
-It converts "HTML", but keep intact partial entries like "xxxHTMLyyy" and so on.
-
-*[HTML]: Hyper Text Markup Language
-
-### [Custom containers](https://github.com/markdown-it/markdown-it-container)
-
-::: warning
-*here be dragons*
-:::
-`
+import WaterFall from "@/components/WaterFall.vue";
+import WaterFallItem from "@/components/WaterFallItem.vue";
 </script>
 
 <template>
-<Markdown :markdown-text="text"/>
+  <div class="w-[85%]">
+    <WaterFall width="100%">
+      <WaterFallItem
+          :width="200"
+          class="item"
+          :class="`item-${item % 22}`"
+          v-for="item in 88"
+          :key="item"
+          slide-enter :style="{ '--stagger': item + 1 }"
+      >
+        {{ item }}
+      </WaterFallItem>
+      <WaterFallItem :width="200" :height="200" class="item">
+        <img
+            style="width: 100%"
+            src="https://p26-passport.byteacctimg.com/img/user-avatar/65aae4fcc914b67b83f82d84d5a056db~90x90.awebp"
+            alt=""
+        />
+      </WaterFallItem>
+      <WaterFallItem :width="200" :height="200" class="item">
+        <img
+            style="width: 100%"
+            src="https://avatars.githubusercontent.com/u/58922004?v=4"
+            alt=""
+        />
+      </WaterFallItem>
+      <WaterFallItem :width="200" :height="125" class="item">
+        <img
+            style="width: 100%"
+            src="https://www.10wallpaper.com/wallpaper/medium/2312/Tradition_Lantern_Street_View_Tokyo_Japan_5K_medium.jpg"
+            alt=""
+        />
+      </WaterFallItem>
+      <WaterFallItem :width="200" :height="360" class="item">
+        <img
+            style="width: 100%"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBKD95au_2m0_wc2Xc9gcTqvN4d5v4uCdKMg&usqp=CAU"
+            alt=""
+        />
+      </WaterFallItem>
+    </WaterFall>
+  </div>
 </template>
 
 <style scoped>
+.item {
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: 700;
+  color: aliceblue;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  width: 400px;
+  position: absolute;
+}
 
+.item-1 {
+  background-color: rgb(206, 169, 169);
+  height: 300px;
+}
+
+.item-2 {
+  background-color: rgb(131, 226, 174);
+  height: 150px;
+}
+
+.item-3 {
+  background-color: rgb(77, 30, 30);
+  height: 350px;
+}
+
+.item-4 {
+  background-color: rgb(49, 62, 134);
+  height: 300px;
+}
+
+.item-5 {
+  background-color: rgb(230, 99, 99);
+  height: 200px;
+}
+
+.item-6 {
+  background-color: rgb(206, 169, 169);
+  height: 300px;
+}
+
+.item-7 {
+  background-color: rgb(124, 126, 145);
+  height: 400px;
+}
+
+.item-8 {
+  background-color: rgb(169, 199, 38);
+  height: 230px;
+}
+
+.item-9 {
+  background-color: rgb(114, 128, 53);
+  height: 300px;
+}
+
+.item-10 {
+  background-color: rgb(48, 54, 18);
+  height: 260px;
+}
+
+.item-11 {
+  background-color: rgb(118, 122, 96);
+  height: 230px;
+}
+
+.item-12 {
+  background-color: rgb(118, 122, 96);
+  height: 240px;
+}
+
+.item-13 {
+  background-color: rgb(118, 122, 96);
+  height: 250px;
+}
+
+.item-14 {
+  background-color: rgb(118, 122, 96);
+  height: 270px;
+}
+
+.item-15 {
+  background-color: rgb(118, 122, 96);
+  height: 330px;
+}
+
+.item-16 {
+  background-color: rgb(118, 122, 96);
+  height: 200px;
+}
+
+.item-17 {
+  background-color: rgb(118, 122, 96);
+  height: 100px;
+}
+
+.item-18 {
+  background-color: rgb(118, 122, 96);
+  height: 400px;
+}
+
+.item-19 {
+  background-color: rgb(118, 122, 96);
+  height: 340px;
+}
+
+.item-20 {
+  background-color: rgb(118, 122, 96);
+  height: 350px;
+}
+
+.item-21 {
+  background-color: rgb(118, 122, 96);
+  height: 360px;
+}
+
+.item-0 {
+  background-color: rgb(118, 122, 96);
+  height: 370px;
+}
 </style>
