@@ -4,6 +4,7 @@ const Intro = () => import("@/views/Intro.vue");
 const Blogs = () => import("@/views/Blogs.vue");
 const Projects = () => import("@/views/Projects.vue");
 const Photo = () => import("@/views/Photo.vue");
+const Music = () => import("@/views/Music.vue");
 
 const routes: RouteRecordRaw[] = [
   {
@@ -40,7 +41,7 @@ const routes: RouteRecordRaw[] = [
       {
         path: "/music",
         name: "music",
-        component: Layout,
+        component: Music,
       },
     ],
   },
