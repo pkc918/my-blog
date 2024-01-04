@@ -1,11 +1,11 @@
 package controller
 
 import (
-	"my-blog/app/dao"
-	"my-blog/app/model"
+	"github.com/gin-gonic/gin"
+	"my-blog/app/service"
 )
 
-func GetGithubProfile() *model.GithubProfile {
-	githubProfile := dao.GetGithubProfile()
-	return githubProfile
+func GetGithubProfile(c *gin.Context) {
+	githubProfile := service.GetGithubProfile()
+	c.JSON(200, gin.H{"data": &githubProfile})
 }

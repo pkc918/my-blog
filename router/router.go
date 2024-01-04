@@ -2,9 +2,9 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-	"my-blog/app/service"
+	"my-blog/app/controller"
 )
 
 func AddRoutes(r *gin.Engine) {
-	r.GET("/user", service.GetGithubProfile)
+	r.GET("/user", controller.GetGithubProfile)
 }
