@@ -6,5 +6,6 @@ import (
 )
 
 func AddRoutes(r *gin.Engine) {
-	r.GET("/user", controller.GetGithubProfile)
+	api := r.Group("/api")
+	api.GET("/user", controller.GetGithubProfile)
 }
