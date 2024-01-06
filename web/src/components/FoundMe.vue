@@ -10,22 +10,22 @@ import WeChat from "@/icons/WeChat.vue";
 <template>
   <ul class="fcc flex-col found-me-btn">
     <li class=" bg-[rgb(15,20,25)]">
-      <a target="_blank" href="" rel="noreferrer">
+      <a target="_blank" href="https://github.com/pkc918" rel="noreferrer">
         <Github fill="#fff"/>
       </a>
     </li>
     <li class="bg-[rgb(194,12,12)] important:text-10">
-      <a target="_blank" href="" rel="noreferrer">
+      <a target="_blank" href="https://music.163.com/#/user/home?id=1431850776" rel="noreferrer">
         <NetEasyMusic fill="#fff"/>
       </a>
     </li>
     <li class="bg-[rgb(36,46,54)] important:text-5">
-      <a target="_blank" href="" rel="noreferrer">
+      <a target="_blank" href="https://twitter.com/pkc918" rel="noreferrer">
         <Twitter class="text-[#fff]" fill="#fff"/>
       </a>
     </li>
     <li class="bg-[rgb(212,70,56)] important:text-7">
-      <a target="_blank" href="" rel="noreferrer">
+      <a target="_blank" href="xiaopan2000918@gmail.com" rel="noreferrer">
         <Email fill="#fff"/>
       </a>
     </li>
