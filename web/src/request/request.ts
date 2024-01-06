@@ -1,4 +1,4 @@
-import axios, { AxiosInstance } from "axios";
+import axios, { AxiosInstance, AxiosResponse } from "axios";
 import {
     requestInterceptor,
     requestInterceptorError,
@@ -32,30 +32,36 @@ request.interceptors.response.use(
 );
 
 const post = <T>(url: string, data?: any): Promise<APIResult<T>> => {
-    return new Promise((resolve, reject) => {
-        request({
-            url,
-            data,
-            method: "post",
-        })
-            .then((data) => {
-                if (data.data && data.data.code != 10000) {
-                    reject(data.data.message);
-                } else {
-                    resolve(data.data);
-                }
-            })
-            .catch((reason) => {
-                reject(reason);
+    return new Promise(async (resolve, reject) => {
+        try {
+            const res: AxiosResponse<APIResult<T>> = await request({
+                url,
+                data,
+                method: "post",
             });
+            if (res.data.code === 10000) {
+                resolve(res.data);
+            }
+        } catch (e) {
+            reject(e);
+        }
     });
 };
 
 const get = <T>(url: string, params?: any): Promise<APIResult<T>> => {
-    return request({
-        url,
-        params,
-        method: "get",
+    return new Promise(async (resolve, reject) => {
+        try {
+            const res: AxiosResponse<APIResult<T>> = await request({
+                url,
+                params,
+                method: "get",
+            });
+            if (res.data.code === 10000) {
+                resolve(res.data);
+            }
+        } catch (e) {
+            reject(e);
+        }
     });
 };
 

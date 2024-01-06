@@ -6,7 +6,7 @@ export interface InterceptorMethodType {
 export interface APIResult<T> {
     code: number;
     data: T;
-    message: string;
+    msg: string;
     success: boolean;
     timestamp: number;
 }

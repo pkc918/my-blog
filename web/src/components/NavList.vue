@@ -1,6 +1,19 @@
 <script setup lang="ts">
+import { onMounted, ref } from "vue";
 import Logo from "@/components/Logo.vue";
 import OutLine from "@/components/OutLine.vue";
+import { getProfile } from "@/api/api.ts";
+import { GithubProfile } from "@/api/resType.ts";
+
+const githubProfile = ref<GithubProfile>({});
+onMounted(async () => {
+  try {
+    const res = await getProfile<GithubProfile>();
+    githubProfile.value = res.data;
+  } catch (e) {
+    console.error(e);
+  }
+});
 </script>
 
 <template>
@@ -14,10 +27,9 @@ import OutLine from "@/components/OutLine.vue";
     </div>
     <div class="title-main text-center flex-1 text-truncate">
       <span
-          title="I love three things in the world, the sun the moon and you, the sun for the day, the moon for the night and you forever."
-        >I love three things in the world, the sun the moon and you, the sun for
-        the day, the moon for the night and you forever.</span
-      >
+          :title="githubProfile?.bio">
+        {{ githubProfile?.bio }}
+      </span>
     </div>
     <ul class="navlist-btn flex justify-end flex-1">
       <li>
