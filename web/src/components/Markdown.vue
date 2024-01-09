@@ -1,37 +1,37 @@
 <script setup lang="ts">
-import { watchEffect, ref, nextTick } from "vue";
-import MarkdownIt from 'markdown-it'
+import { ref, nextTick } from "vue";
+import { markedHighlight } from "marked-highlight";
+import { Marked } from "marked";
 import hljs from 'highlight.js';
-import 'highlight.js/styles/atom-one-light.css'
-import "github-markdown-css"
-// import markdownItHighlightjs from 'markdown-it-highlightjs'
-// import markdownItCodeCopy from 'markdown-it-code-copy'
-hljs.highlightAll()
+import "@/themes/z-blue.scss";
+
 const props = defineProps<{
   markdownText: string
 }>()
 
-// 用于存放最终解析出来的dom
-const markdownDom = ref<HTMLDivElement>()
+const marked = new Marked(
+    markedHighlight({
+      langPrefix: "hljs language-",
+      highlight(code, lang, _) {
+        const language = hljs.getLanguage(lang) ? lang : "plaintext";
+        return hljs.highlight(code, {language}).value;
+      }
+    })
+);
 
-// 初始化 markdown-it 实例
-const md = new MarkdownIt()
-// 配置代码高亮插件
-// md.use(markdownItHighlightjs)
-// // 配置代码块复制插件
-// md.use(markdownItCodeCopy)
+// 用于存放最终解析出来的dom
+const html = ref<string>("");
 
 // 解析markdown
-const handleMarkdown = () => {
+const handleMarkdown = async () => {
   // 判断markdown为空不解析
   if (!props.markdownText) {
     return
   }
-
   // 解析markdown获取HTML
-  const html = md.render(props.markdownText)
+  const str = await marked.parse(props.markdownText);
   console.log(html)
-  markdownDom.value!.innerHTML = html
+  html.value = str;
 }
 
 nextTick(() => {
@@ -41,9 +41,8 @@ nextTick(() => {
 </script>
 
 <template>
-<div class="markdown-body highlight max-w-5xl 2xl:max-w-6xl mx-auto" ref="markdownDom"></div>
+  <div class="content">
+    <div class="max-w-5xl 2xl:max-w-6xl mx-auto highlight markdown-body" v-html="html"></div>
+  </div>
 </template>
 
-<style scoped>
-
-</style>
