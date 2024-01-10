@@ -23,6 +23,11 @@ body {
   place-items: center;
   min-height: 100vh;
   height: 100vh;
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 #app {

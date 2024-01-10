@@ -3,7 +3,7 @@
 import Markdown from "@/components/Markdown.vue";
 const str = `
 >我像麋鹿一样在林荫中走着，为着自己的香气而发狂；夜晚是五月正中的夜晚，清风是南国的清风； 我迷路了，我游荡着，我寻求那得不到的东西，我得到了我所没有寻求的东西。 —— 泰戈尔
-
+## 哈哈哈
 ### 前言
 
 每周四，在群里总是会看到一些疯狂星期四的小故事，而且个个的小故事还挺有趣，但是让我这样的人肯定是编不出来了，在想刚好在学习Go，是不是可以怎么操作一下，写个命令行来获取周四文案啥的，这样就不用自己去编了。既然有了想法那就开干
@@ -135,13 +135,13 @@ func Print(res string) {
 \`\`\`
 到此基本上就完成了，算是一个练习的小demo吧，可以拿着这个去和群友欢乐对线吧！
 
-### 效果
+#### 效果
 ![Thursday.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9160242b455541f7b32bc495cdc2dc0c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2160&h=634&s=147475&e=png&b=2c2a2e)
 `
 </script>
 
 <template>
-<div>Music</div>
+<!--<div>Music</div>-->
   <Markdown :markdown-text="str"/>
 </template>
 
