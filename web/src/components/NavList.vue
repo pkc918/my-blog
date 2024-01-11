@@ -18,11 +18,11 @@ onMounted(async () => {
 
 <template>
   <nav
-    class="w-full h-20 px-5 py-5 flex justify-between items-center box-border"
+    class="w-full h-15 px-5 py-3 flex justify-between items-center box-border"
   >
     <div class="flex-1 h-full flex justify-start">
       <RouterLink to="/">
-        <Logo class="h-full" />
+        <Logo class="h-full text-4" />
       </RouterLink>
     </div>
     <div class="title-main text-center flex-1 text-truncate">
@@ -66,7 +66,7 @@ li {
 
   svg {
     position: absolute;
-    bottom: -1rem;
+    bottom: -10px;
     display: none;
   }
 

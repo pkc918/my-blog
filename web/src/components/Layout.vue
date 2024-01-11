@@ -7,7 +7,7 @@ import NavList from "@/components/NavList.vue";
     <header class="w-full fixed top-0 bg-[rgba(255,255,255,1)] z-1">
       <NavList />
     </header>
-    <main class="flex-1 flex justify-center mt-20">
+    <main class="flex-1 flex justify-center mt-16">
       <RouterView />
     </main>
     <footer></footer>
