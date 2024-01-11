@@ -99,15 +99,13 @@ setTimeout(() => {
       <div v-html="html"></div>
     </div>
     <div class="w-full max-w-[300px] relative">
-      <ul class="w-full min-h-[300px] max-h-[400px] max-w-[300px] rd-1 bg-red fixed">
+      <ul class="w-full p-4 box-border min-h-[300px] max-h-[400px] max-w-[300px] rd-1 bg-[rgba(58,197,105,0.1)] fixed">
         <li v-for="item in tocs" :key="item.id" class="m-0 cursor-pointer" @click="toTarget(item.id)"
             :style="{'padding-left': `${(item.level - minLevel)}em`}">
-          <a :href="`#toc-nav-${item.id}`">{{item.text}}</a>
+          <a class="py-1 text-[14px] line-height-[22px] inline-block w-full font-600" :href="`#toc-nav-${item.id}`"
+             :title="item.text">{{ item.text }}</a>
         </li>
       </ul>
     </div>
-
-
   </div>
 </template>
-

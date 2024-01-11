@@ -1,13 +1,26 @@
 <script setup lang="ts">
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+const handleArticleById = (id: number) => {
+  router.push({
+    name: "article",
+    params: {id}
+  });
+};
 </script>
 
 <template>
   <div class="max-w-5xl 2xl:max-w-6xl mx-auto flex">
     <section class="w-full max-w-[65%] pr-10">
       <h2 class="text-[#F16B6F] text-1em" slide-enter>所有文章</h2>
-      <article  class="not-first-of-type:mt-12 first-of-type:pt-4" v-for="(article, index) in 5" :key="article"
-                slide-enter :style="{ '--stagger': index + 1 }">
-        <a class="group" href="">
+      <article class="not-first-of-type:mt-12 first-of-type:pt-4 cursor-pointer"
+               @click="handleArticleById(index)"
+               v-for="(article, index) in 5"
+               :key="article"
+               slide-enter
+               :style="{ '--stagger': index + 1 }">
+        <div class="group">
           <h3 class="group-hover:title-main">An Interactive Guide to CSS Grid</h3>
           <p class="text-justify">
             CSS Grid is an incredibly powerful tool for building layouts on the web, but like all powerful tools, there's a
@@ -15,14 +28,16 @@
             use it effectively. I'll share the biggest 💡 lightbulb moments I've had in my own learning journey.
           </p>
           <div class="font-bold">Read more</div>
-        </a>
+        </div>
       </article>
     </section>
     <section class="w-full max-w-[35%] pl-10">
       <h2 class="text-[#F16B6F] text-1em" slide-enter>最新文章</h2>
       <div class="pt-4">
         <ul class="flex flex-col">
-          <li class="mb-4"  v-for="(article, index) in 5" :key="article" slide-enter :style="{ '--stagger': index + 1 }">An Interactive Guide to CSS Grid An Interactive Guide to CSS Grid</li>
+          <li class="mb-4 cursor-pointer hover:title-main" @click="handleArticleById(index)" v-for="(article, index) in 5" :key="article" slide-enter
+              :style="{ '--stagger': index + 1 }">An Interactive Guide to CSS Grid An Interactive Guide to CSS Grid
+          </li>
         </ul>
       </div>
     </section>
