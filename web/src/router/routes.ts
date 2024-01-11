@@ -4,6 +4,7 @@ const Intro = () => import("@/views/Intro.vue");
 const Blogs = () => import("@/views/Blogs.vue");
 const Projects = () => import("@/views/Projects.vue");
 const Photo = () => import("@/views/Photo.vue");
+const Article = () => import("@/views/Article.vue");
 const Music = () => import("@/views/Music.vue");
 
 const routes: RouteRecordRaw[] = [
@@ -36,6 +37,14 @@ const routes: RouteRecordRaw[] = [
           title: "Blog - 陪我去看海吧"
         },
         component: Blogs,
+      },
+      {
+        path: "/blog/:id",
+        name: "article",
+        component: Article,
+        meta: {
+          title: "Article - 陪我去看海吧"
+        }
       },
       {
         path: "/projects",
