@@ -6,6 +6,7 @@ import (
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/schema"
+	"my-blog/app/model"
 	"net/url"
 )
 
@@ -44,4 +45,12 @@ func Server() {
 		panic("fail to connect database, err: " + err.Error())
 	}
 	DB = db
+	autoMigrate(db)
+}
+
+func autoMigrate(db *gorm.DB) {
+	err := db.AutoMigrate(&model.User{}, &model.Article{})
+	if err != nil {
+		panic(err.Error())
+	}
 }

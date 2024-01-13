@@ -2,13 +2,13 @@ package service
 
 import (
 	"my-blog/app/dao"
-	"my-blog/app/model"
+	"my-blog/app/dto"
 )
 
 /* client */
 
 // GetGithubProfile 从Github获取信息
-func GetGithubProfile() *model.GithubProfile {
+func GetGithubProfile() *dto.GithubProfileRes {
 	githubProfile := dao.GetGithubProfile()
 	return githubProfile
 }
