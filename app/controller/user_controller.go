@@ -7,6 +7,9 @@ import (
 	"net/http"
 )
 
+/* client */
+
+// GetGithubProfile 从Github获取信息
 func GetGithubProfile(c *gin.Context) {
 	githubProfile := service.GetGithubProfile()
 	res := tool.Res{
@@ -17,4 +20,11 @@ func GetGithubProfile(c *gin.Context) {
 		Msg:        "操作成功",
 	}
 	tool.Response(&res)
+}
+
+/* admin */
+
+// LogIn 登录
+func LogIn(c *gin.Context) {
+	service.LogIn()
 }
