@@ -1,6 +1,7 @@
 package service
 
 import (
+	"errors"
 	"my-blog/app/dao"
 	"my-blog/app/dto"
 )
@@ -16,6 +17,11 @@ func GetGithubProfile() *dto.GithubProfileRes {
 /* admin */
 
 // LogIn 登录
-func LogIn() {
-
+func LogIn(data *dto.LoginParamsData) (token string, err error) {
+	if !dao.ValidateCredentials(data) {
+		err = errors.New("账号密码不一致")
+		return token, err
+	}
+	token = dao.Login(data)
+	return token, nil
 }
