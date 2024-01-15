@@ -36,7 +36,8 @@ func LogIn(c *gin.Context) {
 	// 参数格式验证
 	token, err := service.LogIn(loginParams)
 	if err != nil {
-		panic(err.Error())
+		tool.Fail(c, nil, err.Error())
+		return
 	}
 	tool.Success(c, token)
 }

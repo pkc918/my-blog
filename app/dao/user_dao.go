@@ -2,9 +2,9 @@ package dao
 
 import (
 	"encoding/json"
-	"fmt"
 	"log"
 	"my-blog/app/dto"
+	"my-blog/app/middleware"
 	"my-blog/tool"
 )
 
@@ -18,9 +18,13 @@ func GetGithubProfile() *dto.GithubProfileRes {
 }
 
 func ValidateCredentials(data *dto.LoginParamsData) bool {
-	return data.Phone == "123" && data.Password == "123"
+	return data.Phone == "18608645531" && data.Password == "123456" && data.Email == "2489964425@qq.com"
 }
 
 func Login(data *dto.LoginParamsData) string {
-	return fmt.Sprintf("token %s-%s-%s", data.Email, data.Phone, data.Password)
+	jwt, err := middleware.GenerateJWT(data)
+	if err != nil {
+		panic(err.Error())
+	}
+	return jwt
 }
