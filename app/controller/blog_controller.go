@@ -2,14 +2,29 @@ package controller
 
 import (
 	"github.com/gin-gonic/gin"
+	"my-blog/app/dto"
 	"my-blog/app/service"
+	"my-blog/tool"
+	"net/http"
 )
 
 /* client */
 
 // GetBlogs 获取博客列表
 func GetBlogs(c *gin.Context) {
-	service.GetBlogs()
+	var params *dto.GetBlogListParams
+	if err := c.ShouldBindJSON(&params); err != nil {
+		res := tool.Res{
+			C:          c,
+			Code:       10000,
+			HttpStatus: http.StatusBadRequest,
+			Data:       nil,
+			Msg:        err.Error(),
+		}
+		tool.Response(&res)
+		return
+	}
+	service.GetBlogs(params)
 }
 
 // GetArticleById 获取文章内容
