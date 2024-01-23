@@ -1,6 +1,7 @@
 package middleware
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt/v5"
 	"my-blog/app/dto"
@@ -44,24 +45,13 @@ func ParseToken(token string) (*MyCustomClaims, error) {
 
 func JWT() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		var code int
-		//code = e.SUCCESS
-		token := c.Query("token")
-		if token == "" {
-			code = 1
-		} else {
-			claims, err := ParseToken(token)
-			if err != nil {
-				code = 1
-			} else if time.Now().Unix() > claims.ExpiresAt.Unix() {
-				code = 1
-			}
-		}
-
-		if code == 1 {
+		token := c.Request.Header.Get("Token")
+		fmt.Println(token)
+		_, err := ParseToken(token)
+		if err != nil {
 			c.JSON(http.StatusUnauthorized, gin.H{
-				"code": code,
-				"msg":  "1",
+				"code": 10001,
+				"msg":  err.Error(),
 				"data": nil,
 			})
 			c.Abort()
