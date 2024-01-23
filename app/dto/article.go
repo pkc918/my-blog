@@ -25,3 +25,7 @@ type NewArticleParams struct {
 	Author      string `json:"author" binding:"required"`
 	PWD         string `json:"pwd" binding:"required"`
 }
+
+type ArticleDetailParams struct {
+	ID uint `json:"id" binding:"required"`
+}

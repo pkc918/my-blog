@@ -13,8 +13,12 @@ func GetBlogs(params *dto.GetBlogListParams) []*dto.BlogList {
 }
 
 // GetArticleById 获取文章内容
-func GetArticleById() {
-
+func GetArticleById(params *dto.ArticleDetailParams) (*dto.NewArticleParams, error) {
+	article, err := dao.GetArticleById(params)
+	if err != nil {
+		return nil, err
+	}
+	return article, nil
 }
 
 /* admin */

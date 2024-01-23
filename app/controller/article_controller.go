@@ -29,7 +29,19 @@ func GetBlogs(c *gin.Context) {
 
 // GetArticleById 获取文章内容
 func GetArticleById(c *gin.Context) {
-	service.GetArticleById()
+	var params *dto.ArticleDetailParams
+	if err := c.ShouldBindUri(&params); err != nil {
+		res := tool.Res{
+			C:          c,
+			Code:       10000,
+			HttpStatus: http.StatusBadRequest,
+			Data:       nil,
+			Msg:        err.Error(),
+		}
+		tool.Response(&res)
+		return
+	}
+	service.GetArticleById(params)
 }
 
 /* admin */

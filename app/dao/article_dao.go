@@ -20,3 +20,15 @@ func PostNewArticle(params *dto.NewArticleParams) error {
 	// Mysql
 	return nil
 }
+
+func GetArticleById(params *dto.ArticleDetailParams) (*dto.NewArticleParams, error) {
+	// Mysql
+	var article = &dto.NewArticleParams{
+		Title:       "测试",
+		Content:     "### 测试用的",
+		Description: "I love three things",
+		Author:      "陪我去看海吧",
+		PWD:         "juejin",
+	}
+	return article, nil
+}
