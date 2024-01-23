@@ -20,6 +20,6 @@ func GetArticleById() {
 /* admin */
 
 // PostNewArticle 写新文章
-func PostNewArticle() {
-
+func PostNewArticle(article *dto.NewArticleParams) error {
+	return dao.PostNewArticle(article)
 }

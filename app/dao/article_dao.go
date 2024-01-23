@@ -15,3 +15,8 @@ func GetBlogs(params *dto.GetBlogListParams) []*dto.BlogList {
 	})
 	return blogList
 }
+
+func PostNewArticle(params *dto.NewArticleParams) error {
+	// Mysql
+	return nil
+}

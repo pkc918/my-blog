@@ -36,5 +36,21 @@ func GetArticleById(c *gin.Context) {
 
 // PostNewArticle 写新文章
 func PostNewArticle(c *gin.Context) {
-	service.PostNewArticle()
+	var article *dto.NewArticleParams
+	if err := c.ShouldBindJSON(&article); err != nil {
+		res := tool.Res{
+			C:          c,
+			Code:       10000,
+			HttpStatus: http.StatusBadRequest,
+			Data:       nil,
+			Msg:        err.Error(),
+		}
+		tool.Response(&res)
+		return
+	}
+	if err := service.PostNewArticle(article); err != nil {
+		tool.Fail(c, nil, err.Error())
+		return
+	}
+	tool.Success(c, "添加成功")
 }
