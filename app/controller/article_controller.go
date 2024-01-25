@@ -41,7 +41,12 @@ func GetArticleById(c *gin.Context) {
 		tool.Response(&res)
 		return
 	}
-	service.GetArticleById(params)
+	article, err := service.GetArticleById(params)
+	if err != nil {
+		tool.Fail(c, nil, err.Error())
+		return
+	}
+	tool.Success(c, article)
 }
 
 /* admin */
